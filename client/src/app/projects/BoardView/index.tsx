@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGetTasksQuery, useUpdateTaskStatusMutation } from '@/state/api';
 import React from 'react'
 import {DndProvider, useDrag, useDrop} from 'react-dnd';
@@ -77,7 +78,7 @@ const TaskColumn = ({
         <div ref={(instance) => {drop(instance)}} className={`sl:py-4 rounded-lg py-2 xl:px-2 
             ${isOver ? "bg-blue-100 dark:bg-neutral-950" : ""}`}>
             <div className='mb-3 flex w-full'>
-                <div className={`w-2 !bg-[${statusColor(status)}] rounded-s-lg`}
+                <div className={`w-2 !bg-[${statusColor[status]}] rounded-s-lg`}
                 style={{backgroundColor: statusColor[status]}}/>
                 <div className='flex w-full items-center justify-between rounded-e-lg bg-white px-5 py-4 dark:bg-dark-secondary'>
                     <h3 className='flex items-centertext-lg font-semibold dark:text-white'>
