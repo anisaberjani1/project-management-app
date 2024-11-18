@@ -8,7 +8,7 @@ type Props =  {
   setActiveTab: (tabName: string) => void;
 }
 
-const ProjectHeader = ({activeTab,setActiveTab}: Props) => {
+const ProjectHeader = ({activeTab, setActiveTab}: Props) => {
   const [isModalNewProjectOpen, setIsModalNewProjectOpen] = useState(false);
 
   return (

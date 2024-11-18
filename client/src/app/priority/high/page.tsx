@@ -3,10 +3,10 @@ import ReusablePriorityPage from '../reusablePriorityPage'
 import { Priority } from '@/state/api'
 
 
-const High = () => {
+const Urgent = () => {
   return (
     <ReusablePriorityPage priority={Priority.High}/>
   )
 }
 
-export default High
+export default Urgent

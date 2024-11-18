@@ -19,7 +19,7 @@ const Timeline = () => {
         locale: "en-US"
     })
 
-    const ganttProjects = useMemo(() => {
+    const ganttTasks = useMemo(() => {
         return (
             projects?.map((project) => ({
                 start: new Date(project.startDate as string),
@@ -67,7 +67,7 @@ const Timeline = () => {
         <div className='overflow-hidden rounded-md bg-white shadow dark:bg-dark-secondary dark:text-white'>
             <div className='timeline'>
                 <Gantt 
-                    tasks={ganttProjects} 
+                    tasks={ganttTasks} 
                     {...displayOptions}
                     columnWidth={displayOptions.viewMode === ViewMode.Month ? 150: 100}
                     listCellWidth='100px'

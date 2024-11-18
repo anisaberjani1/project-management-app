@@ -42,6 +42,5 @@ const Project = ({params}: Props) => {
     </div>
   )
 }
-//5.18.25
 
 export default Project

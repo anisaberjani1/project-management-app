@@ -128,7 +128,7 @@ const ReusablePriorityPage = ({priority}: Props) => {
             </div>
         ) : (
             view === 'table' && filteredTasks && (
-                <div className='w-full'>
+                <div className='z-0 w-full'>
                     <DataGrid
                         rows={filteredTasks}
                         columns={columns}

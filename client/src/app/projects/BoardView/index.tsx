@@ -28,7 +28,7 @@ const BoardView = ({id, setIsModalNewTaskOpen}: BoardProps) => {
   
     return (
         <DndProvider backend={HTML5Backend}>
-            <div className='grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4'>
+            <div className='grid grid-cols-1 gap-4 p-4 md:grid-cols-2 xl:grid-cols-4'>
                 {taskStatus.map((status) => (
                     <TaskColumn 
                         key={status} 
@@ -56,7 +56,7 @@ const TaskColumn = ({
     moveTask,
     setIsModalNewTaskOpen,
 }: TaskColumnProps) => {
-    //functionality for drag and drop
+    //functionality for drop
     const [{isOver}, drop] = useDrop(() => ({
         accept: "task",
         drop: (item: {id:number}) => moveTask(item.id, status),
@@ -81,7 +81,7 @@ const TaskColumn = ({
                 <div className={`w-2 !bg-[${statusColor[status]}] rounded-s-lg`}
                 style={{backgroundColor: statusColor[status]}}/>
                 <div className='flex w-full items-center justify-between rounded-e-lg bg-white px-5 py-4 dark:bg-dark-secondary'>
-                    <h3 className='flex items-centertext-lg font-semibold dark:text-white'>
+                    <h3 className='flex items-center text-lg font-semibold dark:text-white'>
                         {status}{" "}
                         <span className='ml-2 inline-block rounded-full bg-gray-200 p-1 text-center text-sm leading-none 
                             dark:bg-dark-tertiary' style={{width: "1.5rem", height: "1.5rem"}}>
@@ -112,6 +112,7 @@ type TaskProps = {
 }
 
 const Task = ({task}:TaskProps) => {
+    //functionality for grag
     const [{isDragging}, drag] = useDrag(() => ({
         type: "task",
         item: {id: task.id},
@@ -176,7 +177,7 @@ const Task = ({task}:TaskProps) => {
                     </button>
                 </div>
 
-                <div className='py-3 flex justify-between'>
+                <div className='my-3 flex justify-between'>
                     <h4 className='text-md font-bold dark:text-white'>
                         {task.title}
                     </h4>
@@ -198,7 +199,7 @@ const Task = ({task}:TaskProps) => {
 
                 {/* Users */}
                 <div className='mt-3 flex items-center justify-between'>
-                    <div className='flex -space-x-[5px] overflow-hidden'>
+                    <div className='flex -space-x-[6px] overflow-hidden'>
                         {task.assignee && (
                             <Image 
                                 key={task.assignee.userId}
